@@ -1,3 +1,3 @@
 #!/bin/sh
-pip install -r pythonpacks.txt
+pip install -r py.txt
 
