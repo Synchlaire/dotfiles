@@ -1,0 +1,12 @@
+#!/bin/sh
+
+output="/home/claroscuro/Pictures/Screenshots/$(date +%Y-%m-%d-%T)-screenshot.png"
+
+case "$1" in
+    "full") maim  "$output" || exit ;;
+    "select") maim -s "$output" || exit ;;
+    "window") maim -st 9999999 | convert - \( +clone -background black -shadow 80x3+5+5 \) +swap -background none -layers merge +repage "$output" || exit ;;
+esac 
+
+
+dunstify -i "$output" "snap!"

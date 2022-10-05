@@ -1,0 +1,25 @@
+! st
+st.termname:                    st
+st.font:                        juliamono:pixelsize=12:antialias=true:autohint=true;
+st.borderpx:                    15
+st.cursorthickness:             1
+st.cursorblinkstyle:            2
+st.chscale:                     1.0
+st.cwscale:                     1.0
+st.boxdraw:                     1
+!st.depth:                       1
+st.opacity:                     255
+st.alpha:                       1
+!st.alphaOffset:                 0.4
+st.undercurl_shape:             1
+st.scrollrate:                  7
+st.shell:						zsh
+! st.disable_alpha_correction:    0
+
+! max opacity is 255
+!border was 15
+
+
+! xmenu
+
+xmenu.font:                      juliamono:pixelsize=12:antialias=true:autohint=true;

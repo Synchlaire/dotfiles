@@ -1,0 +1,3 @@
+#!/bin/sh
+
+giph -s -l -c 1,1,1,0.4 -b 3 -p -5 screen.gif 

@@ -1,0 +1,87 @@
+### Settings from original zathurarc ###
+set sandbox none
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set page-padding 1
+set selection-clipboard clipboard
+map u scroll half-up
+map d scroll half-down
+map D toggle_page_mode
+map r reload
+map R rotate
+map K zoom in
+map J zoom out
+map p print
+
+### zathura-pywal ###
+# Allow recolor
+set recolor 'true'
+
+# Don't allow original hue when recoloring
+set recolor-keephue 'false'
+
+# Don't keep original image colors while recoloring
+set recolor-reverse-video 'false'
+
+# Command line completion entries
+set completion-fg '#838383'
+set completion-bg '#070708'
+
+# Command line completion group elements
+set completion-group-fg '#71737b'
+set completion-group-bg '#070708'
+
+# Current command line completion element
+set completion-highlight-fg '#070708'
+set completion-highlight-bg '#838383'
+
+# Default foreground/background color
+set default-bg rgba(7,7,8,1)
+
+# Input bar
+set inputbar-fg '#838383'
+set inputbar-bg '#070708'
+
+# Notification
+set notification-fg '#838383'
+set notification-bg '#070708'
+
+# Error notification
+set notification-error-fg '#838383'
+set notification-error-bg '#6c6d74'
+
+# Warning notification
+set notification-warning-fg '#838383'
+set notification-warning-bg '#6c6d74'
+
+# Tab - TODO
+# set tabbar-fg
+# set tabbar-bg
+
+# Focused tab - TODO
+# set tabbar-focus-fg
+# set tabbar-focus-bg
+
+# Status bar
+set statusbar-fg '#838383'
+set statusbar-bg '#070708'
+
+# Highlighting parts of the document (e.g. show search results)
+set highlight-color '#71737b'
+set highlight-active-color '#71737b'
+
+# Represent light/dark colors in recoloring mode
+set recolor-lightcolor rgba(0,0,0,0)
+set recolor-darkcolor '#838383'
+
+# 'Loading...' text
+set render-loading-fg '#838383'
+set render-loading-bg '#070708'
+
+# Index mode
+set index-fg '#838383'
+set index-bg '#070708'
+
+# Selected element in index mode
+set index-active-fg '#070708'
+set index-active-bg '#838383'

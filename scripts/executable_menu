@@ -1,0 +1,46 @@
+#!/bin/sh
+
+xmenu <<EOF | sh &
+Applications
+	firefox
+	MasterPlan
+	File managers
+		Ranger	st -e ranger
+		Nemo	nemo	
+	programming
+		Rstudio	rstudio-bin
+		Vscode	code-oss
+	media
+		spotify
+		audacious
+		youtube(tui)	st -e python ~/scripts/youtube_rss/youtube_rss.py --use-thumbnails
+Terminals
+	xterm
+	st
+Commands
+	Screenshot	
+		select(clipboard)	maim -s | xclip -selection clipboard -t image/png && dunstify "pic saved to clipboard!"
+		full(clipboard)		maim | xclip -selection clipboard -t image/png && dunstify "pic saved to clipboard!"
+		select	maim -s ~/Pictures/Screenshots/$(date +%Y-%m-%d-%T)-screenshot.png && dunstify "Snap!"
+		full	maim ~/Pictures/Screenshots/$(date +%Y-%m-%d-%T)-screenshot.png && dunstify "Snap!"
+	Style (colorschemes)
+		light	sed -i s/white/black/g .Xresources && xrdb merge .Xresources && wal -l --theme monotonous-light	
+		light(low contrast)	sed -i s/white/black/g .Xresources && xrdb merge .Xresources && wal -l --theme monotonous-locontrast-light 
+		dark	sed -i s/black/white/g .Xresources && xrdb merge .Xresources  && wal --theme monotonous-dark
+		wallpaper	 wal -i $(cut -d\' -f2 ~/.fehbg | tail -1)
+		wallpaper(light)	wal -l -b "#e1e1df" --saturate 0.33 -i $(cut -d\' -f2 ~/.fehbg | tail -1)
+
+Settings
+	config files
+		polybar	st -e vim .config/polybar/config.ini
+		bspwm	st -e vim .config/bspwm/bspwmrc 
+		sxhkd	st -e vim .config/sxhkd/sxhkdrc
+		picom	st -e vim .config/picom.conf
+		vim		st -e vim .vimrc
+		Xresources	st -e vim .Xresources
+		zsh		st -e vim .zshrc 
+		xmenu	st -e vim /home/claroscuro/scripts/menu
+	Power Menu
+		Shutdown		poweroff
+		Reboot			reboot
+EOF

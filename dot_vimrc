@@ -1,0 +1,349 @@
+" I literally just write on txt and rmarkdown lol 
+" ~Claroscuro
+
+"                    =====SETS=====
+
+ " Set compatibility to Vim only.
+ set nocompatible
+
+" show partial command you type in the last line of the screen
+set showcmd
+
+" backups are for twinks
+set nobackup
+
+" same goes for swapfiles
+
+set noswapfile
+
+"Always show current position
+set ruler
+
+"Auto-detect unlabeled filetypes
+filetype plugin indent on
+
+" set the leader key to spacebar
+let mapleader=" "
+
+" this is only to make sure the spacebar doesn't have any mapping beforehand
+
+nnoremap <SPACE> <Nop>
+" Set k + j to get out of insert mode
+
+:inoremap kj  <Esc>
+
+" Turn on syntax highlighting.
+syntax on
+
+"fix the bullshit paste formatting
+set pastetoggle=<F11>
+
+" Enable mouse scroll
+:set mouse=nicr
+
+" Turn off modelines
+set modelines=1
+
+" <F2> to save. god only knows why they thought :w was a good idea as a default
+:nnoremap <F2> :w<cr>
+:inoremap <F2> <c-o>:w<cr>
+
+" Uncomment below to set the max textwidth. Use a value corresponding to the width of your screen.
+set textwidth=80
+set formatoptions=tcqrn1
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+" set expandtab
+set noshiftround
+inoremap <S-Tab> <C-V><Tab>
+" Ignore case when searching
+set ignorecase
+
+" When searching try to be smart about cases 
+set smartcase
+
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
+
+" Display 5 lines above/below the cursor when scrolling with a mouse.
+set scrolloff=5
+" Fixes common backspace problems
+set backspace=indent,eol,start
+
+" Display options
+set showmode
+set showcmd
+set cmdheight=2
+
+" Highlight matching pairs of brackets. Use the '%' character to jump between them.
+set matchpairs+=<:>
+
+" Display different types of white spaces.
+"set list
+"set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+
+" Show line numbers
+set relativenumber
+set number
+
+highlight LineNr ctermfg=black
+
+"Set status line display
+set laststatus=2
+hi StatusLine ctermfg=NONE ctermbg=red cterm=NONE
+hi StatusLineNC ctermfg=black ctermbg=red cterm=NONE
+hi User1 ctermfg=black ctermbg=magenta
+hi User2 ctermfg=black ctermbg=blue
+hi User3 ctermfg=black ctermbg=blue
+hi User4 ctermfg=black ctermbg=cyan
+set statusline=\                    " Padding
+set statusline+=%f                  " Path to the file
+set statusline+=\ %1*\              " Padding & switch colour
+set statusline+=%y                  " File type
+set statusline+=\ %2*\              " Padding & switch colour
+set statusline+=%=                  " Switch to right-side
+set statusline+=\ %3*\              " Padding & switch colour
+set statusline+=line                " of Text
+set statusline+=\                   " Padding
+set statusline+=%l                  " Current line
+set statusline+=\ %4*\              " Padding & switch colour
+set statusline+=of                  " of Text
+set statusline+=\                   " Padding
+set statusline+=%L                  " Total line
+set statusline+=\                   " Padding
+
+" Encoding
+set encoding=UTF-8
+
+" Highlight matching search patterns
+set hlsearch
+
+" Enable incremental search
+set incsearch
+
+" Include matching uppercase words with lowercase search term
+set ignorecase
+
+" Include only uppercase words with uppercase search term
+set smartcase
+
+" border column?
+ set signcolumn=yes
+
+" Store info from no more than 100 files at a time, 9999 lines of text
+" 100kb of data. Useful for copying large amounts of data between files.
+"set viminfo='100,<9999,s100
+
+"===============================================================
+"   ____    ___                                          
+"  /\  _`\ /\_ \                    __                   
+"  \ \ \L\ \//\ \    __  __     __ /\_\    ___     ____  
+"   \ \ ,__/ \ \ \  /\ \/\ \  /'_ `\/\ \ /' _ `\  /',__\ 
+"    \ \ \/   \_\ \_\ \ \_\ \/\ \L\ \ \ \/\ \/\ \/\__, `\
+"     \ \_\   /\____\\ \____/\ \____ \ \_\ \_\ \_\/\____/
+"      \/_/   \/____/ \/___/  \/___L\ \/_/\/_/\/_/\/___/ 
+"                               /\____/                  
+"                               \_/__/            
+"===============================================================
+
+
+call plug#begin('~/.vim/plugged')
+Plug	 'mhinz/vim-startify', {'branch': 'center'}
+Plug     'junegunn/fzf.vim' , { 'do': { -> fzf#install() } }
+Plug     'nanotee/zoxide.vim'
+Plug     'junegunn/goyo.vim'
+Plug     'scrooloose/nerdtree'
+Plug     'godlygeek/tabular'
+Plug     'ap/vim-css-color'
+Plug     'ryanoasis/vim-devicons'
+Plug     'preservim/vim-markdown'
+Plug     'reedes/vim-pencil'
+Plug     'tpope/vim-surround'
+Plug     'turbio/bracey.vim'
+Plug	 'psliwka/vim-smoothie'
+Plug     'dylanaraps/wal.vim' 
+Plug     'voldikss/vim-floaterm'
+Plug     'AnotherProksY/ez-window'
+Plug     'wfxr/minimap.vim'
+Plug     'neoclide/coc.nvim', {'branch': 'release'}
+Plug	 'tpope/vim-sensible'
+" Plug	 'jalvesaq/Nvim-R', {'branch': 'stable'}
+call plug#end()
+
+
+
+
+"==========================================
+"                                               
+"   ___ ____ ___ / /_/ /  ___ / /_(_)______
+"  / _ `/ -_|_-</ __/ _ \/ -_) __/ / __(_-<
+"  \_,_/\__/___/\__/_//_/\__/\__/_/\__/___/
+"
+"==========================================
+
+" Smooth scroll
+
+nnoremap <unique> <C-D> <cmd>call smoothie#do("\<C-D>") <CR>
+vnoremap <unique> <C-D> <cmd>call smoothie#do("\<C-D>") <CR>
+
+
+" use pywal to define colorscheme
+  colorscheme wal 
+"==================================================
+"               _ __                          __   
+"   _    ______(_) /____ ____  __ _  ___  ___/ /__ 
+"  | |/|/ / __/ / __/ -_) __/ /  ' \/ _ \/ _  / -_)
+"  |__,__/_/ /_/\__/\__/_/   /_/_/_/\___/\_,_/\__/ 
+"
+"==================================================                                                  
+
+" ======== GOYO =========
+
+
+" Make goyo fucking behave
+function! s:goyo_enter()
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+endfunction
+
+function! s:goyo_leave()
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
+endfunction
+
+autocmd User GoyoEnter call <SID>goyo_enter()
+autocmd User GoyoLeave call <SID>goyo_leave()
+
+
+" bind goyo to Space+gg
+
+map <leader>gg :Goyo<CR>
+
+" minimap
+
+let g:minimap_width = 20
+map <leader>mm :MinimapToggle<CR>
+
+" ==== MARKDOWN ====
+
+
+
+" treat text (.txt) files as Markdown
+
+au BufRead,BufNewFile *.txt set filetype=markdown
+
+" Disable folding 
+let g:vim_markdown_folding_disabled=1
+
+" Enable yaml front-matter (useful for blogging)
+let g:vim_markdown_frontmatter=1
+
+
+" enable TOC auto-fit
+let g:vim_markdown_toc_autofit = 1
+
+" enable Strikethrough
+let g:vim_markdown_strikethrough = 1
+
+" adjust list indentation
+let g:vim_markdown_new_list_item_indent = 1
+
+
+" ==== PENCIL ====
+
+"enable da pen
+
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd call pencil#init()
+  autocmd FileType text         call pencil#init()
+augroup END
+
+" enable da wrap
+let g:pencil#wrapModeDefault = 'soft'
+
+" enable conceal
+
+let g:pencil#conceallevel = 3
+let g:pencil#concealcursor = 'c'
+
+
+" Set nerdtree to open with space+T
+
+map <leader>t :NERDTreeToggle<CR>
+
+" ==== in case you need a terminal ====
+
+map <leader>ft :FloatermNew --height=0.6 --width=0.4 --title=hey_handsome --position=topright <CR>
+map <leader>fT :FloatermToggle <CR>
+
+" set leader+p to open coc command popup
+
+map <leader>p :CocCommand <CR>
+
+
+" ==== cases where you need to run a line of code ====
+
+" bash
+nmap <F6> :exec '!'.getline('.')<enter>
+
+" ======= f5 to render rmd files as pdf =====0
+
+
+autocmd Filetype rmd map <f5> :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>
+
+" ====== project specific vimrc ======
+
+if !exists("*LoadProjectVimrc")
+	function! LoadProjectVimrc()
+		let vimrcFile = findfile(".vimrc", ".;")
+
+		if !empty(l:vimrcFile)
+			execute ":so" l:vimrcFile
+			echom "A project specifc vimrc has been loaded."
+		endif
+	endfunction
+endif
+autocmd DirChanged * :call LoadProjectVimrc()
+nnoremap <F12> :call LoadProjectVimrc()<CR>
+
+
+" ===== Startify =====
+
+let g:startify_center = 60
+" Must be global so that it can be read by syntax/startify.vim.
+
+let g:ascii = [
+		  \ '        __',
+          \ '.--.--.|__|.--------.',
+          \ '|  |  ||  ||        |',
+          \ ' \___/ |__||__|__|__|',
+          \ ''
+          \]
+    highlight StartifyBracket ctermfg=240
+    highlight StartifyFooter  ctermfg=240
+    highlight StartifyHeader  ctermfg=114
+    highlight StartifyNumber  ctermfg=215
+    highlight StartifyPath    ctermfg=245
+    highlight StartifySlash   ctermfg=240
+    highlight StartifySpecial ctermfg=240
+
+let g:startify_custom_header =
+          \ startify#pad(g:ascii)
+" add nerdtree to splash
+
+"  autocmd VimEnter *
+"                \   if !argc()
+"                \ |   Startify
+"                \ |   NERDTree
+"                \ |   wincmd w
+"                \ | endif

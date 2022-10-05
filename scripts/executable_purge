@@ -1,0 +1,7 @@
+#!/bin/sh
+
+
+# this command will purge unused packages and discard unused chunks of memory in
+# your filesystem
+
+sudo pacman -Rns $(pacman -Qtdq) ; sudo fstrim -av

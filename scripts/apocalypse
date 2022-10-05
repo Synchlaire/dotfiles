@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# For "fuck it" situations
+
+
+
+# this will erase your whole hdd and overwrite its files with a pass of 0s 
+# running this script once is usually enough to destroy the data beyond possible
+# recovery, but if you're really paranoid, you can run it a second time
+
+
+
+shred -n 0 -z /dev/sdx
+
+
+
+# BE EXTREMELY FUCKING CAREFUL
+
+# I MEAN IT
+
