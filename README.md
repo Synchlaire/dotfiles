@@ -8,4 +8,10 @@ mom's gonna FREAK
 
 using chezmoi to manage it, so:
 
-      sh -c "$(curl -fsLS chezmoi.io/get)" -- init synchlaire
+1. **Install it**
+
+        sh -c "$(curl -fsLS chezmoi.io/get)"
+
+2. **run it**
+
+        chezmoi init https://github.com/synchlaire/dotfiles.git
